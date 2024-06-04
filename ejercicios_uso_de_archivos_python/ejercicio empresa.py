@@ -33,10 +33,11 @@ with open ('datos.csv', 'r') as archivo_empresa:
             empresas.append(fila)
         elif 100000001 <=clasificacion_por_ventas <= 200000000:
             fila['clasificacion']="Mediano contribuyente"
+            empresas.append(fila)
         elif clasificacion_por_ventas > 200000000:
-            fila['clasificacion']="Gran contribuyente"    
+            fila['clasificacion']="Gran contribuyente"
+            empresas.append(fila)    
 
 with open ('datos.json', 'w') as archivo_json:
-    json.dump(empresas, archivo_json)
-    datos_leidos = json.load(archivo_json)
-    print(datos_leidos)
+    json.dump(empresas, archivo_json, indent=4, ensure_ascii=False)
+    
