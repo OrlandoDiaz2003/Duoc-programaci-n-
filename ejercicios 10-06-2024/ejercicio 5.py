@@ -1,6 +1,4 @@
-contactos={
-
-}
+contactos={}
 
 def añadir_contacto(): 
     nombre=input("Ingrese el nombre del usuario: ")
