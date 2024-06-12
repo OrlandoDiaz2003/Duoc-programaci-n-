@@ -18,7 +18,7 @@ def eliminar_citas():
         if buscar not in citas_medicas:
             print("Esta persona no se encuentra en la lista")
         else:
-            print(f"¿Este es el paciente que desea cancelar su cita? \nPaciente= {buscar} \nFecha de cita: {citas_medicas[buscar]["fecha"]}")
+            print(f"¿Este es el paciente que desea cancelar su cita? \nPaciente= {buscar} \nFecha de cita: {citas_medicas[buscar]['fecha']}")
             rsp=input("[S/N]: ").lower()
             if rsp=="s":
                 del citas_medicas[buscar]
@@ -39,7 +39,7 @@ def buscar_citas():
             print("El paciente ingresado no se encuentra en la lista")
             continue
         else:
-            print(f"{buscar} \nDoctor: {citas_medicas[buscar]["nombre_medico"]} \nFecha: {citas_medicas[buscar]["fecha"]} \nHora: {citas_medicas[buscar]["hora"]} \nMotivo: {citas_medicas[buscar]["motivo"]}")
+            print(f"{buscar} \nDoctor: {citas_medicas[buscar]['nombre_medico']} \nFecha: {citas_medicas[buscar]['fecha']} \nHora: {citas_medicas[buscar]['hora']} \nMotivo: {citas_medicas[buscar]['motivo']}")
             break
 
 def registro_citas_csv():

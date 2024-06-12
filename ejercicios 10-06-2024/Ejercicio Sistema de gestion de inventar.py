@@ -52,7 +52,7 @@ def actualizar_cantidad():
                 continue
             else:
                 buscar_producto=list(stock.keys())[rsp-1]
-                print(f"Haz seleccionado \n producto: {buscar_producto} \n cantidad: {stock[buscar_producto]["cantidad"]}")
+                print(f"Haz seleccionado \n producto: {buscar_producto} \n cantidad: {stock[buscar_producto]['cantidad']}")
                 break
         except ValueError:
             print("Haz ingresado un caracter invalido")
@@ -65,7 +65,7 @@ def actualizar_cantidad():
                 continue
             else:
                 stock[buscar_producto]["cantidad"]=cantidad
-                print(f"Haz Actualizado la cantidad \n producto: {buscar_producto} \n cantidad: {stock[buscar_producto]["cantidad"]}")
+                print(f"Haz Actualizado la cantidad \n producto: {buscar_producto} \n cantidad: {stock[buscar_producto]['cantidad']}")
                 break
         except ValueError:
             print("Haz ingresado un  caracter invalido")
@@ -73,7 +73,7 @@ def actualizar_cantidad():
 
 def mostrar_inventario():
     for i,productos in enumerate(stock):
-        print(f"{i+1}.-{productos}: cantidad: {stock[productos]["cantidad"]} precio: {stock[productos]["precio"]}$")
+        print(f"{i+1}.-{productos}: cantidad: {stock[productos]['cantidad']} precio: {stock[productos]['precio']}$")
 
 def buscar_productos():
     while True:
@@ -82,7 +82,7 @@ def buscar_productos():
             print("El producto que haz ingresado no se encuentra en el stock vuelva a intentarlo")
             continue
         else:
-            print(f"Producto: {buscar} \nCantidad: {stock[buscar]["cantidad"]} \nPrecio: {stock[buscar]["precio"]} $")
+            print(f"Producto: {buscar} \nCantidad: {stock[buscar]['cantidad']} \nPrecio: {stock[buscar]['precio']} $")
             break
 
 def menu():
