@@ -54,10 +54,10 @@ def registro_citas_csv():
     with open("registro_citas.csv" , "w", newline="") as datos_citas: #se crea/abre archivo.csv 
         escritor_csv=csv.writer(datos_citas)
         escritor_csv.writerow(["Paciente", "Medico", "Fecha", "Hora", "Motivo"]) #se ingresan las categorias
-        for elemento, info, in citas_medicas.items(): #con un clico for se va iterando en los datos de los pacientes 
+        for paciente, info, in citas_medicas.items(): #con un clico for se va iterando en los datos de los pacientes 
             escritor_csv.writerow([
                 
-                    elemento,                    #elemento es el nombre de los pacientes
+                    paciente,                    #elemento es el nombre de los pacientes
                     info["medico"],       #info son los datos de los pacientes 
                     info["fecha"], 
                     info["hora"], 
