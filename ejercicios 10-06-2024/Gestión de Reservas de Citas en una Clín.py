@@ -1,7 +1,7 @@
 import csv
 citas_medicas={
-    "User":{"nombre_medico": "doctor", "fecha":"2024-07-24", "hora":"10:30", "motivo":"consulta general"},
-    "User2":{"nombre_medico": "doctor", "fecha":"2024-07-24", "hora":"10:30", "motivo":"consulta general"}
+    "User":{"medico": "doctor", "fecha":"2024-07-24", "hora":"10:30", "motivo":"consulta general"},
+    "User2":{"medico": "doctor", "fecha":"2024-07-24", "hora":"10:30", "motivo":"consulta general"}
 }
 
 def agregar_cita():
@@ -10,7 +10,13 @@ def agregar_cita():
     fecha=input("Ingrese la fecha de la cita (ejemplo 2024-05-24): ")
     hora=input("Ingrese la hora de la cita (ejemplo 10:30): ")
     motivo=input("Ingrese el motivo de la cita: ")
-    citas_medicas[agregar_paciente]=[{"nombre_medico":medico, "fecha":fecha, "hora":hora, "motivo":motivo }]
+    cita={             #se crea un diccionario anidado donde estan los datos de la cita
+        "medico":medico,
+        "fecha":fecha,
+        "hora":hora,
+        "motivo":motivo
+    }
+    citas_medicas[agregar_paciente]=cita #se guarda los datos del paciente en el diccionario de citas_medicas
 
 def eliminar_citas():
     while True:
@@ -34,21 +40,55 @@ def eliminar_citas():
 
 def buscar_citas():
     while True:
-        buscar=input("Ingrese el nombre del paciente para ver detalles de su cita: ")
+        buscar=input("Ingrese el nombre del paciente para ver detalles de su cita: ").title()
         if buscar not in citas_medicas:
             print("El paciente ingresado no se encuentra en la lista")
             continue
         else:
-            print(f"{buscar} \nDoctor: {citas_medicas[buscar]['nombre_medico']} \nFecha: {citas_medicas[buscar]['fecha']} \nHora: {citas_medicas[buscar]['hora']} \nMotivo: {citas_medicas[buscar]['motivo']}")
-            break
+             print(f"Paciente: {buscar}")
+             for datos, info in citas_medicas[buscar].items():
+                print(f"{datos.title()}: {info}")
+        break  
 
 def registro_citas_csv():
-    datos=[]
-    with open("registro_citas.csv" , "w", newline="") as datos_citas:
+    with open("registro_citas.csv" , "w", newline="") as datos_citas: #se crea/abre archivo.csv 
         escritor_csv=csv.writer(datos_citas)
-        escritor_csv.writerow(["Paciente", "Medico", "Fecha", "Hora", "Motivo"])
-        paciente=list(citas_medicas)
-        escritor_csv.writerows([
-            citas_medicas
-        ])
-registro_citas_csv()
+        escritor_csv.writerow(["Paciente", "Medico", "Fecha", "Hora", "Motivo"]) #se ingresan las categorias
+        for elemento, info, in citas_medicas.items(): #con un clico for se va iterando en los datos de los pacientes 
+            escritor_csv.writerow([
+                
+                    elemento,                    #elemento es el nombre de los pacientes
+                    info["medico"],       #info son los datos de los pacientes 
+                    info["fecha"], 
+                    info["hora"], 
+                    info["motivo"]
+                
+                ])
+    print("Guardando datos en archivo csv")
+
+def menu():
+
+    op=0
+    while op!=5:
+        try:
+            print("========================")
+            print("Menu citas medicas \n 1.-Agregar cita \n 2.-Eliminar citas \n 3.- Buscar cita \n 4.-Guardar citas en un archivo csv \n 5.-salir")
+            op=int(input("Seleccione una opcion: "))
+            if op==1:
+                agregar_cita()
+            elif op==2:
+                eliminar_citas()
+            elif op==3:
+                buscar_citas()
+            elif op==4:
+                registro_citas_csv()
+            elif op==5:
+                print("Saliendo del programa")
+            else:
+                print("Seleccione una opcion valida")
+                continue
+        except ValueError:
+            print("Ingrese un caracter valido")
+
+
+menu()
