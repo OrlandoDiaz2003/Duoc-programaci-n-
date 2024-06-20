@@ -8,7 +8,10 @@ def agregar_jugador(jugadores):
         "goles": goles
     }
     jugadores.append(jugador)
-    print(jugadores)
+    print("===============")
+    print("Jugador Agregado")
+    print(f"Nombre: {nombre} \n Equipo: {equipo} \n Goles: {goles}")
+    print("===============")
 
 def actualizar_goles(jugadores):
     for i, datos in enumerate(jugadores, 1):
@@ -59,4 +62,4 @@ def eliminar_jugador(jugadores):
 def mostrar_top_jugadores(jugadores):
     mejores_jugadores=sorted(jugadores, key=lambda x: x["goles"], reverse=True)
     for i,jugador in enumerate(mejores_jugadores, 1):
-        print(f"{i}.-{jugador['nombre']}: goles: {jugadores['goles']}")
+        print(f"{i}.-{jugador['nombre']}: goles: {jugador['goles']}")
