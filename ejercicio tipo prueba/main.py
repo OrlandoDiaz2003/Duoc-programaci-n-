@@ -16,7 +16,6 @@ boletos=[
         'destino':"viña del mar"
     }
 ]
-correos=[]
 op=0
 
 while op!=5:
@@ -26,13 +25,13 @@ while op!=5:
         if op==1:
             fn.comprar_boleto(boletos)
         elif op==2:
-            fn.confirmar_boleto(boletos,correos)
+            fn.confirmar_boleto(boletos)
         elif op==3:
-            print()
+            fn.eliminar_boleto(boletos)
         elif op==4:
-            print()
+            fn.exportar_registro(boletos)
         elif op==5:
-            print()
+            print("saliendo del programa")
         else:
             print("Ingrese una opcion valida")
     #except ValueError:
