@@ -1,7 +1,7 @@
 def comprar_boleto(boletos):
-    nombre=input("Ingrese el nombre de la persona que comprar el boleto: ")
+    nombre=input("Ingrese el nombre de la persona que comprar el boleto: ").lower()
     hora=input("Ingrese la hora en que se compra el boleto: ")
-    correo=input("Ingrese el correo del comprador: ")
+    correo=input("Ingrese el correo del comprador: ").lower()
     while True:
         destinos=["viña del mar","valparaiso","concon","santiago"]
         destino=input("Ingrese el destino del boleto: ").lower()
@@ -22,21 +22,9 @@ def comprar_boleto(boletos):
 
 def confirmar_boleto(boletos,correos):
     for info in boletos:
-        correo=info['correo']
-        correos.append(correo)
-    while True:
-        boleto_buscar=input("Ingrese el correo del boleto que deseas confirmar: ")
-        if boleto_buscar in correos:
-            indice_boleto=correos.index(boleto_buscar)
-            boletos[indice_boleto]['estado']="Confirmado"
-            for datos,info in boletos[indice_boleto].items():
-                print(f"{datos}: {info}")
-            print("Confirmacion completada")
-            break
-        else:
-            print("Este correo no se encuentra en la lista")
-            continue
-        
+        correo_buscar = input("Ingrese el correo a buscar: ").lower()
+        if info['correo']==correo_buscar:
+            print(f"Boleto encontrado \n Nombre: {info['nombre'].title()} \n Estado: {info['estado']}")
 
             
         #print(posicion_boleto)
