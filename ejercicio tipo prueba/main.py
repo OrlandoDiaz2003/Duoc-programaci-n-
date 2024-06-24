@@ -16,6 +16,7 @@ boletos=[
         'destino':"viña del mar"
     }
 ]
+destinos=["viña del mar","valparaiso","concon","santiago"]
 op=0
 
 while op!=5:
@@ -23,7 +24,7 @@ while op!=5:
         print("Menu \n 1.-Comprar boleto \n 2.-Confirmar boleto \n 3.-Eliminar boleto \n 4.-Exportar registro")
         op=int(input("Seleccione una opcion: "))
         if op==1:
-            fn.comprar_boleto(boletos)
+            fn.comprar_boleto(boletos,destinos)
         elif op==2:
             fn.confirmar_boleto(boletos)
         elif op==3:

@@ -1,10 +1,9 @@
 import csv
-def comprar_boleto(boletos):
+def comprar_boleto(boletos,destinos):
     nombre=input("Ingrese el nombre de la persona que comprar el boleto: ").lower()
     hora=input("Ingrese la hora en que se compra el boleto: ")
     correo=input("Ingrese el correo del comprador: ").lower()
     while True:
-        destinos=["viña del mar","valparaiso","concon","santiago"]
         destino=input("Ingrese el destino del boleto: ").lower()
         if destino not in destinos:
             print("Destino no valido")
