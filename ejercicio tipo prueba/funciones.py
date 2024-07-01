@@ -4,6 +4,9 @@ def comprar_boleto(boletos,destinos):
     hora=input("Ingrese la hora en que se compra el boleto: ")
     correo=input("Ingrese el correo del comprador: ").lower()
     while True:
+        print("Destinos Validos")
+        for i,dato in enumerate(destinos,1):
+            print(f"{i}.-{dato}")
         destino=input("Ingrese el destino del boleto: ").lower()
         if destino not in destinos:
             print("Destino no valido")
